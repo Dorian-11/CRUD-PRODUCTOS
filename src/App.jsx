@@ -1,33 +1,92 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import ProductsForm from './components/ProductsForm'
+import UserList from './components/UserList'
+import axios from 'axios'
+/* Para eliminar los datos */
+import WarningDelete from './components/WarningDelete'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [usersList, setUsersList] = useState([])
+  const [userSelected, setUserSelected] = useState(null)
+  const [form, setForm] = useState(false)
+  const [alert, setAlert] = useState(false)
+  const [userToDelete, setUserToDelete] = useState(null)
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  const getUsers = () => {
+    axios
+    /* Api  */
+      .get(`https://users-crud.academlo.tech/users/`)
+      .then(res => setUsersList(res.data))
+  }
+
+
+
+
+
+
+
+
+  const selectUser = (user) => {
+    getForm()
+    setUserSelected(user)
+  }
+
+//Constante de peligro
+  const warning = (user) => {
+    setAlert(true)
+    setUserToDelete(user)
+  }
+  
+// Constante de eliminar 
+  const deleteUser = (user) => {
+    axios
+      .delete(`https://users-crud.academlo.tech/users/${user.id}/`)
+      .then(() => getUsers());
+
+    setAlert(false)
+  };
+  const cancelDelete = () => {
+    setUserToDelete(null)
+    setAlert(false)
+  }
+
+//Cerrar Formulario
+  const getForm = () => {
+    setForm(true)
+  }
+  const closeForm = () => {
+    setForm(false)
+    setUserSelected(null)
+  }
+
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {form &&
+        <ProductsForm
+          getUsers={getUsers}
+          userSelected={userSelected}
+          setUserSelected={setUserSelected}
+          closeForm={closeForm}
+        />}
+      <UserList
+        usersList={usersList}
+        selectUser={selectUser}
+        getForm={getForm}
+        warning={warning} />
+      <WarningDelete
+        alert={alert}
+        userToDelete={userToDelete}
+        deleteUser={deleteUser}
+        cancelDelete={cancelDelete}
+      />
+      <footer><p>Creado por : <strong>Dorian Sánchez </strong> |  Academlo</p></footer>
     </div>
   )
 }

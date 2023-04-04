@@ -1,42 +1,279 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+  --PrimaryColorD: green;
+  --DivideColor: yellow;
+  --PrimaryText: #212121;
+  --TextIcon: #fff;
+  --PrimaryColorL: yellow;
+}
+body{
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 200;
+  color: ;
+  background-image: url(https://i.pinimg.com/originals/a6/95/00/a6950043c84a02344047ba326ec293bc.jpg);
+  font-style: italic
+}
+.App{
+  width: 100%;
+}
+
+/*==========LISTADO DE USUARIOS===========*/
+.list__users{
+  width: 100%;
+  padding: 1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.list__users h2{
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.sumary__list{
+  display: flex;
+  padding-bottom: 1rem;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 6px 6px 0 black;
+}
+.sumary__list button{
+  height: 35px;
+  width: 100px;
+  border: none;
+  background-color: yellow;
+  color:  black;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sumary__list button:hover{
+  cursor: pointer;
+  background-color: #fff;
+  color: black;
+}
+.container__card{
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-black-minimalist-atmospheric-wooden-background-backgroundwooden-backgroundtree-texture-image_77053.jpg);
+  width: 100%;
+  min-height: 500px;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: space-evenly;
+  color: var(--PrimaryText);
+}
+.card__user{
+  width: 270px;
+  height: 200px;
+  padding: 2rem 1rem;
+  box-shadow: 0 0 25px yellow;
+  border-radius: 5px;
+  color: #fff;
+}
+.card__user h3{
   text-align: center;
+  padding: .5rem;
+  border-bottom: 2px solid yellow;
+}
+.body__card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  margin: 1rem auto;
+  font-size: .9rem;
+}
+.info__user{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.user__controler{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+}
+.user__controler .bx{
+  filter: drop-shadow(1px 1px yellow);
+}
+.bx-trash{
+  color: yellow;
+}
+.card__user .bx:hover{
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/*===========CONTENEDOR FORMULARIO===========*/
+.container__form{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-black-minimalist-atmospheric-wooden-background-backgroundwooden-backgroundtree-texture-image_77053.jpg);
+  z-index: 999;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.card__form{
+  background-image: url(https://previews.123rf.com/images/jevee/jevee1605/jevee160500088/57374016-patr%C3%B3n-floral-vector-incons%C3%BAtil-decorativo-ornamental-fondo-amarillo-pastel-con-flores-hojas-y.jpg);
+  width: 100%;
+  max-width: 500px;
+  height: 70vh;
+  max-height: 400px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.border__form{
+  border: 2px solid black;
+  width: 98%;
+  height: 98%;
+  padding: 3rem 1rem;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+}
+.border__form .bx{
+  color: black;
+}
+.border__form .bxs-x-circle{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgb(201, 4, 4);
+  filter: drop-shadow(0px 0px 2px black);
+}
+.bxs-x-circle:hover{
+  cursor: pointer;
+}
+.border__form h2{
+  margin-bottom: 2rem;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.input-container_m{
+  display: flex;
+  justify-content: space-between;
+}
+.input-container_m input{
+  width: 48%;
+}
+input{
+  height: 1.8rem;
+  background-color: black;
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+}
+.input-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.input-container input{
+  width: 92%;
+}
+.btn__form{
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  background-color: yellow;
+  height: 2rem;
+  filter: drop-shadow(0px 0px 2px black);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: black;
+  font-weight: 800;
+}
+.btn__form:hover{
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*============ ACTUALIZANDO/CREANDO===========*/
+.status .bx{
+  margin-top: 2rem;
+  color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/*=========== WARNING ==================*/
+.container_name{
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+}
+.border__form hr{
+  height: 2px;
+  width: 70%;
+  margin: 1rem auto 2rem auto;
+  border: 1px solid yellow;
+  filter: drop-shadow(1px 1px 0px black);
+}
+.btn__warning{
+  margin-top: 2rem;
+}
+.btn__warning button:hover{
+  cursor: pointer;
+}
+.btn__cancel{
+  border-radius: 5px;
+  width: 30%;
+  margin: 1rem 1rem;
+  background-color: yellow;
+  height: 2rem;
+  filter: drop-shadow(0px 0px 2px black);
+  border: none;
+  font-size: 1rem;
+  color: black;
+  font-weight: 800;
+  font-style: italic
+}
+.btn__delete{
+  border-radius: 5px;
+  width: 30%;
+  margin: 1rem 1rem;
+  background-color: rgb(245, 40, 40);
+  color: black;
+  height: 2rem;
+  filter: drop-shadow(0px 0px 2px black);;
+  border: none;
+  font-size: 1rem;
+  font-weight: 800;
+  font-style: italic;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* ===========FOOTER============*/
+footer{
+  background-image: url(https://previews.123rf.com/images/jevee/jevee1605/jevee160500088/57374016-patr%C3%B3n-floral-vector-incons%C3%BAtil-decorativo-ornamental-fondo-amarillo-pastel-con-flores-hojas-y.jpg);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: black;
+  position: relative;
+  bottom: 0;
+  font-style: italic;
 }
