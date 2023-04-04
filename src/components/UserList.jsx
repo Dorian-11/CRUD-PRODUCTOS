@@ -19,6 +19,8 @@ const UserList = ({ usersList, selectUser, getForm, warning }) => {
                         <div className='info__user'>
                             <p><b>Correo Electrónico: </b><br />{user.email}</p>
                             <p><b>Fecha de Nacimiento: </b><br />{user.birthday}</p>
+                            <p><b>Precio: </b><br />{user.price}</p>
+                            <p><b>Disponibilidad: </b><br />{user.isAvailable}</p>
                         </div>
                         <div className='user__controler'>
                             <div className='btn__edit' onClick={() => selectUser(user)}><i className='bx bxs-edit-alt bx-sm'></i></div>
@@ -36,4 +38,3 @@ const UserList = ({ usersList, selectUser, getForm, warning }) => {
 export default UserList;
 
 
-/*    const[usersProducts , setUserProducts] =useState([]) */

@@ -1,3 +1,5 @@
+
+//Este componente es para que active la funcion de eliminar el listado
 import React from 'react';
 
 const WarningDelete = ({userToDelete, deleteUser, alert, cancelDelete}) => {

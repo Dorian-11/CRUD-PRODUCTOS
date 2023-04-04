@@ -89,14 +89,14 @@ const ProductsForm = ({ getUsers, userSelected, setUserSelected, closeForm }) =>
 
                         {/* Precio */}
                         <div className="input-container">
-                            <label htmlFor="birthday"><i className='bx bx-dollar '></i></label>
+                            <label htmlFor="price"><i className='bx bx-dollar '></i></label>
                             <input required type="text" id="price" {...register("price")} />
                         </div>
                     
                         {/* De seleccionar */}
                         <div className="input-container">
-                            <label htmlFor="birthday"><i className='bx bx-square'></i></label>
-                            <input required type="radio" id="price" {...register("price")} />
+                            <label htmlFor="isAvailable"><i className='bx bx-square'></i></label>
+                            <input required type="radio" id="price" {...register("isAvailable")} />
                         </div>
 
                         <button className='btn__form'>{userSelected ? "Actualizar usuario" : "Nuevo usuario"}</button>
